@@ -32,12 +32,14 @@ angular.module('myApp.controllers', []).
     $scope.cervejas = [];
 
     var id = $routeParams.id;
-    console.log("id", id);
+    var url = '/api/beers';
 
     if(id){
+      url += '/'+id;
+
       $http({
         method: 'GET',
-        url: '/api/beers/'+id
+        url: url
       }).
       success(function (data, status, headers, config) {
         $scope.cerveja = data;
@@ -48,13 +50,26 @@ angular.module('myApp.controllers', []).
       });
     }
 
+    $scope.deletar = function(){
+      $http({
+        method: 'DELETE',
+        url: url
+      }).
+      success(function (data, status, headers, config) {
+        $scope.msg = 'Cerveja deletada'
+      }).
+      error(function (data, status, headers, config) {
+        $scope.msg = 'Error!'
+      });
+
+    }
+
     $scope.salvar= function(){
-      console.log($scope.form);
       var dados = $scope.form;
 
       $http({
         method: 'PUT',
-        url: '/api/beers/'+id,
+        url: url,
         data: dados
       }).
       success(function (data, status, headers, config) {
@@ -85,7 +100,7 @@ angular.module('myApp.controllers', []).
     $scope.listar = function(){
       $http({
         method: 'GET',
-        url: '/api/beers'
+        url: url
       }).
       success(function (data, status, headers, config) {
         $scope.cervejas = data;

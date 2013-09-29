@@ -6,5 +6,5 @@ button(data-ng-click="listar()")
 ul
   li(data-ng-repeat="cerveja in cervejas")
     {{ cerveja.name }} - {{ cerveja.type }} - 
-    a(href="#")
+    a(href="/beers/{{ cerveja._id }}")
       | Edit

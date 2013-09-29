@@ -1,6 +1,7 @@
 h2
   | {{ cerveja.name }}
 
+h1 {{msg}}
 
 form(action="", method="post")
   label
@@ -25,9 +26,9 @@ form(action="", method="post")
       data-ng-init="cerveja.description", 
       data-ng-model="form.description")
       {{cerveja.description}}
-  //- input(type="hidden", name="_id", value=cerveja[0]['_id'])
-  input(type="hidden", name="_method", value="put")
+
   button.btn.btn-salvar(data-ng-click="salvar()") SALVAR
+  button.btn.btn-deleter(data-ng-click="deletar()") DELETAR
 
   h3 Alterações
   ul
