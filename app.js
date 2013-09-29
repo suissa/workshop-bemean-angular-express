@@ -6,6 +6,7 @@
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
+  beer = require('./routes/beer'),
   http = require('http'),
   path = require('path');
 
@@ -44,19 +45,21 @@ if (app.get('env') === 'production') {
 // serve index and view partials
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
+app.get('/expose/:dir/:name', routes.expose);
 
 // JSON API
 app.get('/api/name', api.name);
 
+
+app.get('/api/beers', beer.list);
+app.post('/api/beers', beer.create);
+app.get('/api/beers/:id', beer.retrieve);
+app.put('/api/beers/:id', beer.update);
+app.delete('/api/beers/:id', beer.delete);
+
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
-
-app.get('/api/beers', api.list);
-app.post('/api/beers', api.create);
-app.get('/api/beers/:id', api.retrieve);
-app.put('/api/beers/:id', api.update);
-app.delete('/api/beers/:id', api.delete);
 
 
 /**
