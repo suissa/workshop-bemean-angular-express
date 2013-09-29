@@ -28,17 +28,20 @@ angular.module('myApp.controllers', []).
   controller('BeerController', function ($scope, $http) {
     
     $scope.msg = 'Cervejas';
+
+    $scope.listar = function(){
+      $http({
+        method: 'GET',
+        url: '/api/beers'
+      }).
+      success(function (data, status, headers, config) {
+        $scope.cervejas = data;
+        $scope.msg = 'Listagem das cervejas'
+      }).
+      error(function (data, status, headers, config) {
+        $scope.msg = 'Error!'
+      });
+    }
     
-    $http({
-      method: 'GET',
-      url: '/api/beers'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.cervejas = data;
-      $scope.msg = 'Listagem das cervejas'
-    }).
-    error(function (data, status, headers, config) {
-      $scope.msg = 'Error!'
-    });
 
   });
