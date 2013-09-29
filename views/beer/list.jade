@@ -1,0 +1,10 @@
+h2 {{ msg }}
+
+button(data-ng-click="listar()")
+  | Listar
+
+ul
+  li(data-ng-repeat="cerveja in cervejas")
+    {{ cerveja.name }} - {{ cerveja.type }} - 
+    a(href="#")
+      | Edit
