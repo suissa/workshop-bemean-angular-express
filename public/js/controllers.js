@@ -50,6 +50,24 @@ angular.module('myApp.controllers', []).
       });
     }
 
+    $scope.criar = function(){
+      var dados = $scope.form;
+
+      $http({
+        method: 'POST',
+        url: url,
+        data: dados
+      }).
+      success(function (data, status, headers, config) {
+        $scope.cerveja = data;
+        $scope.cervejas.push(data)
+        $scope.msg = 'Cerveja: '+data.name
+      }).
+      error(function (data, status, headers, config) {
+        $scope.msg = 'Error!'
+      });
+    }
+
     $scope.deletar = function(){
       $http({
         method: 'DELETE',

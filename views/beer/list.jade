@@ -1,5 +1,27 @@
 h2 {{ msg }}
 
+form(action="", method="post")
+  label
+    input(
+      type="text", 
+      name="name", 
+      value="{{ cerveja.name }}"
+      placeholder="name",  
+      data-ng-model="form.name")
+  label
+    input(
+      type="text", 
+      name="type", 
+      placeholder="type", 
+      data-ng-model="form.type")
+  label
+    textarea(
+      name="description", 
+      placeholder="description", 
+      data-ng-model="form.description")
+
+  button.btn.btn-salvar(data-ng-click="criar()") CRIAR
+
 button(data-ng-click="listar()")
   | Listar
 

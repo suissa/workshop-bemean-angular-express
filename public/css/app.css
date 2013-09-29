@@ -28,3 +28,12 @@
   content: "";
   padding: 0;
 }
+
+label {
+  display: block;
+  width: 100%;
+}
+label input, label textarea {
+  padding: 4px;
+  width: 100%
+}
