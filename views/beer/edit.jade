@@ -1,0 +1,34 @@
+h2
+  | {{ cerveja.name }}
+
+
+form(action="", method="post")
+  label
+    input(
+      type="text", 
+      name="name", 
+      value="{{ cerveja.name }}"
+      placeholder="name", 
+      data-ng-init="cerveja.name", 
+      data-ng-model="form.name")
+  label
+    input(
+      type="text", 
+      name="type", 
+      placeholder="type", 
+      data-ng-init="cerveja.type", 
+      data-ng-model="form.type")
+  label
+    textarea(
+      name="description", 
+      placeholder="description", 
+      data-ng-init="cerveja.description", 
+      data-ng-model="form.description")
+      {{cerveja.description}}
+  //- input(type="hidden", name="_id", value=cerveja[0]['_id'])
+  input(type="hidden", name="_method", value="put")
+  button.btn.btn-salvar(data-ng-click="salvar()") SALVAR
+
+  ul
+    li(ng-repeat="cerveja in cervejas")
+      {{ cerveja.name }} - {{ cerveja.type }}
