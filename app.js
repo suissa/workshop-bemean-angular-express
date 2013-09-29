@@ -52,6 +52,13 @@ app.get('/api/name', api.name);
 app.get('*', routes.index);
 
 
+app.get('/api/beers', api.list);
+app.post('/api/beers', api.create);
+app.get('/api/beers/:id', api.retrieve);
+app.put('/api/beers/:id', api.update);
+app.delete('/api/beers/:id', api.delete);
+
+
 /**
  * Start Server
  */
