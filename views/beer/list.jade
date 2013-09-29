@@ -26,7 +26,7 @@ button(data-ng-click="listar()")
   | Listar
 
 ul
-  li(data-ng-repeat="cerveja in cervejas")
+  li(data-ng-repeat="cerveja in cervejas | orderBy: 'name':true")
     {{ cerveja.name }} - {{ cerveja.type }} - 
     a(href="/beers/{{ cerveja._id }}")
       | Edit
