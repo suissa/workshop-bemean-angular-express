@@ -56,7 +56,7 @@ exports.create = function(req, res){
   model.save(function(err, data) {
     if(err){
       console.log(err);
-      res.render("beer_list", {msg: err})
+      res.render("list", {msg: err})
     } else {
       res.json(data);
     }
