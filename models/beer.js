@@ -51,9 +51,9 @@ exports.retrieve = function(req, res){
 
 exports.create = function(req, res){
   var dados = req.body;
-  var beer = new Model(dados);
+  var model = new Model(dados);
 
-  beer.save(function(err, data) {
+  model.save(function(err, data) {
     if(err){
       console.log(err);
       res.render("beer_list", {msg: err})
