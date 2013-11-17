@@ -69,6 +69,7 @@ angular.module('myApp.controllers', []).
     }
 
     $scope.deletar = function(){
+      console.log('del');
       $http({
         method: 'DELETE',
         url: url

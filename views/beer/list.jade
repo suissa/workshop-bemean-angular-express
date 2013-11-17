@@ -25,8 +25,9 @@ form(action="", method="post")
 button(data-ng-click="listar()")
   | Listar
 
+input(type="text", data-ng-model="search")
 ul
-  li(data-ng-repeat="cerveja in cervejas | orderBy: 'name':true")
+  li(data-ng-repeat="cerveja in cervejas | orderBy: 'name':true | filter:search ", ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}")
     {{ cerveja.name }} - {{ cerveja.type }} - 
     a(href="/beers/{{ cerveja._id }}")
       | Edit
