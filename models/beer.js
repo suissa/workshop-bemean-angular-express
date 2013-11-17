@@ -69,11 +69,15 @@ exports.update = function(req, res){
   var dados = req.body;
   var query = {_id: id};
 
+  console.log('id', id);
+  console.log('query', query);
+
   Model.update(query, dados, function(err, beer) {
     if(err) {
-      console.log(err);
+      console.log('erro', err);
     } else {
       // res.render('beer_update', {cerveja: beer});
+      console.log('sucesso', beer);
       res.json(beer);
     }
   });

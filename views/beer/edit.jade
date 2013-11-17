@@ -10,22 +10,22 @@ form(action="", method="post")
       name="name", 
       value=""
       placeholder="name", 
-      data-ng-init="cerveja.name", 
       data-ng-model="cerveja.name")
   label
     input(
       type="text", 
       name="type", 
       placeholder="type", 
-      data-ng-init="cerveja.type", 
       data-ng-model="cerveja.type")
   label
     textarea(
       name="description", 
       placeholder="description", 
-      data-ng-init="cerveja.description", 
       data-ng-model="cerveja.description")
       {{cerveja.description}}
+  input(type="hidden",
+        name="_id", 
+        data-ng-model="cerveja._id")
 
   button.btn.btn-salvar(data-ng-click="salvar()") SALVAR
   button.btn.btn-deleter(data-ng-click="deletar()") DELETAR

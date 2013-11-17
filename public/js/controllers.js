@@ -85,6 +85,7 @@ angular.module('myApp.controllers', []).
     $scope.salvar= function(){
       var dados = $scope.cerveja;
 
+      delete dados['_id'];
       $http({
         method: 'PUT',
         url: url,
