@@ -83,7 +83,7 @@ angular.module('myApp.controllers', []).
     }
 
     $scope.salvar= function(){
-      var dados = $scope.form;
+      var dados = $scope.cerveja;
 
       $http({
         method: 'PUT',
